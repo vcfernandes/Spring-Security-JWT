@@ -37,9 +37,12 @@ Para testar os endpoints, recomendamos a ferramenta de linha de comando [HTTPie]
     choco install httpie # No Windows com Chocolatey
     # Ou use outro gerenciador de pacotes para sua OS
     ```
-Testar:
+2. **Testar** :
     ```bash
+    
     http -a username:password POST :8080/authenticate
+    
     JWT = <token>
+    
     http :8080/private -A bearer -a ${JWT}
     ```
