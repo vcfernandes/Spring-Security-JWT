@@ -1,33 +1,45 @@
-Projeto feito com o tutorial apresentado no video da Giuliana(https://www.youtube.com/watch?v=kEJ8a1w4a2Q) de como implementar uma autenticação e autorização com Spring Security e JWT.
-O Repositório dela: https://github.com/giuliana-bezerra/spring-security-jwt
+# Spring Security JWT
 
-Tecnologias
+Este projeto demonstra um exemplo de autenticação e autorização com **Spring Security** e **JWT (JSON Web Token)** para proteger APIs REST.
 
-    Spring Boot
-    Spring MVC
-    Spring Security
-    Spring Data JDBC
-    H2
+Baseado no tutorial de Giuliana Bezerra:
+*   **Repositório Original:** [giuliana-bezerra/spring-security-jwt](https://github.com/giuliana-bezerra/spring-security-jwt)
+*   **Vídeo do Tutorial:** [Como Fazer Autenticação e Autorização com Spring Security e JWT](https://www.youtube.com/watch?v=kEJ8a1w4a2Q)
 
-Como Executar
+### Tecnologias Principais
 
-    Clonar repositório git:
+*   **Spring Boot**
+*   **Spring Security**
+*   **JWT**
+*   **H2** (Banco de dados em memória)
 
-https://github.com/vcfernandes/Spring-Security-JWT
+## Como Executar
 
-    Construir o projeto:
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/vcfernandes/Spring-Security-JWT.git
+    cd Spring-Security-JWT
+    ```
 
-./mvnw clean package
+2.  **Construa e execute a aplicação:**
+    ```bash
+    ./mvnw clean package
+    java -jar ./target/spring-security-jwt-0.0.1-SNAPSHOT.jar
+    ```
+    A aplicação estará disponível na porta `8080`.
 
-    Executar:
+## Como Testar a API
 
-java -jar ./target/spring-security-jwt-0.0.1-SNAPSHOT.jar
+Para testar os endpoints, recomendamos a ferramenta de linha de comando [HTTPie](https://httpie.io/).
 
-    Testar ( com httppie ):
-    
-Para instalar o httppie usei o comando : choco install httpie
-Em seguida digite no seu terminal:
-
-http -a username:password POST :8080/authenticate
-JWT = <token>
-http :8080/private -A bearer -a ${JWT}
+1.  **Instale o HTTPie** (se ainda não tiver):
+    ```bash
+    choco install httpie # No Windows com Chocolatey
+    # Ou use outro gerenciador de pacotes para sua OS
+    ```
+Testar:
+    ```bash
+    http -a username:password POST :8080/authenticate
+    JWT = <token>
+    http :8080/private -A bearer -a ${JWT}
+    ```
